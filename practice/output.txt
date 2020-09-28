@@ -1,0 +1,5 @@
+student [name=Nguyen Duc Long, score=7.0]
+student [name=Nguyen Thanh Cong, score=8.0]
+student [name=Hoang Hai, score=6.0]
+student [name=Nguyen Thi Diem, score=8.0]
+student [name=Tran Ngoc Lan, score=4.0]

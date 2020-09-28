@@ -1,0 +1,29 @@
+package practice;
+
+import java.util.ArrayList;
+
+public class singleVariable {
+	
+	public static double sumArrls(ArrayList<Double> arrls) {
+		double sumArr = 0;
+		
+		for (int i = 0; i< arrls.size(); i++) {
+			sumArr += arrls.get(i);
+		}
+		
+		return sumArr;
+	}
+	
+	
+	public static void print(ArrayList<Double> arrls) {
+		for (int i = 0; i< arrls.size();i++) {
+			System.out.print(arrls.get(i) + " ");
+		}
+		System.out.println();
+	}
+	
+	
+	public static void main(String args[]) {
+		
+	}
+}

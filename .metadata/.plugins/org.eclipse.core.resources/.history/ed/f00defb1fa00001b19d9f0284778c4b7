@@ -1,0 +1,53 @@
+package practice;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class studentTest {
+	private static final int ArrayList = 0;
+	private static int student;
+
+
+	public static ArrayList<student> input(String fileName)
+	{
+		ArrayList<student> stds = new ArrayList<>();
+		Scanner scan = null;
+		int n;
+		
+		try {
+			scan = new Scanner(new File(fileName));
+			n = Integer.parseInt(scan.nextLine());
+			
+			for (int i= 0; i < n; i++)
+			{
+				String name = scan.nextLine();
+				double score = Double.parseDouble(scan.nextLine());
+				
+				student s = new student(name,score);
+				stds.add(s);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		public static void print(ArrayList<student> stds)
+		{
+			for (int i = 0; i < stds.size(); i++)
+			{
+				System.out.println(stds.get(i));
+			}
+		}
+		
+		
+		return stds;
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		
+	}
+}

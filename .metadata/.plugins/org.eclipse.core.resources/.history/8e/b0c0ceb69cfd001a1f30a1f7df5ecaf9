@@ -1,0 +1,21 @@
+package car_management;
+
+import java.util.Scanner;
+
+public class testCar {
+	
+	public static void print(Car carData[]) {
+		for (Car c: carData)
+			System.out.println(c.toString());
+	}
+	
+	public static car[] input(Scanner scan) {
+		Car 
+		
+		return carData[];
+	}
+	
+	public static void main (String args[]) {
+		
+	}
+}
