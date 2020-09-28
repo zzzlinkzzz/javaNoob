@@ -3,8 +3,6 @@ package practice;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class progression {
@@ -60,7 +58,7 @@ public class progression {
 	public static int min(ArrayList<Integer> numArr) {
 		int min = numArr.get(0);
 		for (int i = 1; i < numArr.size();i++) {
-			if(min > numArr.get(i)) {
+			if(min < numArr.get(i)) {
 				min = numArr.get(i);
 			}
 		}
@@ -94,20 +92,13 @@ public class progression {
 		
 		for (int i = 0; i< numArr.size();i++) {
 			int num = numArr.get(i);
-			if ((num == 0)|(num == 1)) {
-				soCPArr.add(num);
-				continue;
-			}
-			for (int j = 0; j < num;j++) {
-				if (Math.pow(j,2)==num) {
-					soCPArr.add(num);
-					break;
-				}
+			double check = Math.pow((double)num, 1/2);
+			if (check == (int)check) {
+				soCPArr.add((int)check);
 			}
 		}
 		return soCPArr;
 	}
-	
 	//tim tat ca cac so hoan hao
 	public static ArrayList<Integer> soHH(ArrayList<Integer> numArr){
 		ArrayList<Integer> soHHArr = new ArrayList<>();
@@ -128,6 +119,51 @@ public class progression {
 		return soHHArr;
 	}
 	
+	//tim tat ca cac so asmtrong:
+	public static ArrayList<Integer> Ams(ArrayList<Integer> numArr){
+		ArrayList<Integer> asmArr = new ArrayList<>();
+		
+		for (int i = 0; i < numArr.size();i++) {
+			int num = numArr.get(i);
+			int originN = num;
+			double charLength = Integer.toString(num).length();
+			double remainN;
+		
+			int sum = 0;
+			while (num != 0) {
+				remainN = num % 10;
+				sum += (int)Math.pow(remainN, charLength);
+				num = (int)(num / 10);
+			}
+			
+			if (originN == sum) {
+				asmArr.add(originN);
+			} 
+		}
+		return asmArr;
+	}
+	
+	//tim tat ca cac so pallidrome:
+	public static ArrayList<Integer> Pall(ArrayList<Integer> numArr){
+		ArrayList<Integer> pallArr = new ArrayList<>();
+		
+		for (int i = 0; i < numArr.size();i++) {
+			int num = numArr.get(i);
+			int originN, reverseN = 0,remainN;
+			originN = num;
+			
+			while (num != 0) {
+				remainN = num % 10;
+				reverseN = reverseN * 10 + remainN;
+				num = (int)(num / 10);
+			}
+		
+		if (originN == reverseN) {
+			pallArr.add(originN);
+			} 
+		}
+		return pallArr;
+	}
 	
 	//function kiem tra cap so cong:
 	public static boolean checkAritProg(ArrayList<Integer> numArr){
@@ -238,6 +274,12 @@ public class progression {
 		System.out.println("Cac so hoan hao:");
 		print(soHH(numArr));
 		
+		System.out.println("Cac so Pall:");
+		print(Pall(numArr));
+		
+		System.out.println("Cac so Ams:");
+		print(Ams(numArr));
+		
 		
 		System.out.println("kiem tra tinh chat cap so cong:");
 		if (checkAritProg(numArr)) {
@@ -278,6 +320,5 @@ public class progression {
 			System.out.println("khong phai day doi xung!");
 		}
 		System.out.println();
-
 	}
 }
